@@ -35,7 +35,7 @@ if(!empty($_GET['person'])) {
 
 	<?php
 	// Print 10 times
-	for ($i=10; $i<0; $i--) {
+	for ($i=10; $i>0; $i--) {
 		echo '<p>'.$lipsum.'</p>';
 	}
 	?>
