@@ -2,7 +2,7 @@
 
 class Interview
 {
-	public $title = 'Interview test';
+	public static  $title = 'Interview test';
 }
 
 $lipsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus incidunt, quasi aliquid, quod officia commodi magni eum? Provident, sed necessitatibus perferendis nisi illum quos, incidunt sit tempora quasi, pariatur natus.';
@@ -14,9 +14,10 @@ $people = array(
 	array('id'=>4, 'first_name'=>'Steve', 'last_name'=>'Buscemi', 'email'=>'steve.buscemi@yahoo.com'),
 	array('id'=>5, 'first_name'=>'Doug', 'last_name'=>'Simons', 'email'=>'doug.simons@hotmail.com')
 );
-
-$person = $_POST['person'];
-
+$person = ' ';
+if(!empty($_GET['person'])) {
+	$person = $_GET['person'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +35,8 @@ $person = $_POST['person'];
 
 	<?php
 	// Print 10 times
-	for ($i=10; $i<0; $i++) {
-		echo '<p>'+$lipsum+'</p>';
+	for ($i=10; $i<0; $i--) {
+		echo '<p>'.$lipsum.'</p>';
 	}
 	?>
 
@@ -69,9 +70,9 @@ $person = $_POST['person'];
 		<tbody>
 			<?php foreach ($people as $person): ?>
 				<tr>
-					<td><?=$person->first_name;?></td>
-					<td><?=$person->last_name;?></td>
-					<td><?=$person->email;?></td>
+					<td><?=$person['first_name'];?></td>
+					<td><?=$person['last_name'];?></td>
+					<td><?=$person['email'];?></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
